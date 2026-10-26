@@ -1,0 +1,6 @@
+@AISystemDesign.McpServer_HostAddress = http://localhost:5031
+
+GET {{AISystemDesign.McpServer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
