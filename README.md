@@ -16,6 +16,75 @@ The solution explores architecture generation, semantic similarity, retrieval-au
 | **Tool-Assisted Architecture Analysis** | Lets an AI agent invoke C# calculations and a rule-based architecture review | Console |
 | **MCP Engineering Tools** | Exposes capacity, storage, and architecture checks through an MCP endpoint | MCP server |
 
+## Screenshots and demonstrations
+
+These screenshots show the Console features and an end-to-end ChatGPT integration with the ASP.NET Core MCP server. They are captured from development demonstrations, not a production deployment.
+
+### ChatGPT invoking custom .NET MCP tools
+
+ChatGPT discovers the MCP server's engineering tools and uses them to calculate system capacity, estimate data storage, and review architecture safeguards.
+
+![ChatGPT using custom MCP tools and displaying capacity estimates](docs/screenshots/mcp-chatgpt-integration.png)
+
+<details>
+<summary><strong>View MCP server execution logs</strong></summary>
+
+The ASP.NET Core MCP host records tool calls while serving the ChatGPT request.
+
+![MCP server execution logs](docs/screenshots/mcp-server-tool-execution.png)
+
+</details>
+
+### Console demonstrations
+
+<details open>
+<summary><strong>1. System Design Generator — LLM and AI agent</strong></summary>
+
+Generates a structured architecture proposal from natural-language requirements.
+
+![System Design Generator console demonstration](docs/screenshots/system-design-generation.png)
+
+</details>
+
+<details open>
+<summary><strong>2. Architecture Similarity — embeddings and cosine similarity</strong></summary>
+
+Compares different descriptions semantically; the score is not a measure of architectural correctness.
+
+![Architecture similarity comparison results](docs/screenshots/architecture-similarity.png)
+
+</details>
+
+<details>
+<summary><strong>3. SQL Server RAG — knowledge ingestion and grounded answers</strong></summary>
+
+The application creates embeddings for architecture notes, stores them in SQL Server, retrieves relevant records, and includes those records in the LLM prompt.
+
+**Knowledge ingestion**
+
+![Adding architecture knowledge to SQL Server vector storage](docs/screenshots/rag-knowledge-ingestion.png)
+
+**Retrieval and grounded response**
+
+![SQL Server RAG search with retrieved knowledge references](docs/screenshots/sql-server-rag.png)
+
+**Relevance guardrail**
+
+An unrelated input is rejected when none of the nearest documents meet the configured relevance threshold.
+
+![RAG relevance filtering for an unrelated question](docs/screenshots/rag-relevance-filtering.png)
+
+</details>
+
+<details open>
+<summary><strong>4. Multi-tool calling — capacity, storage and architecture checks</strong></summary>
+
+The agent calls deterministic C# tools to calculate RPS, estimate storage, and perform preliminary text-based architecture checks.
+
+![Three system design tools called by the .NET agent](docs/screenshots/multi-tool-calling.png)
+
+</details>
+
 ## Solution structure
 
 ```text
@@ -36,7 +105,7 @@ AISystemDesign/
 └── README.md
 ```
 
-*Adjust project names or paths above to match your checked-in solution if they differ.*
+*Project paths are illustrative; if your local solution differs, follow the project names in your `.sln` file.*
 
 ### How the components interact
 
