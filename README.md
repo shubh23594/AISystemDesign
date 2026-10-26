@@ -20,7 +20,7 @@ The solution explores architecture generation, semantic similarity, retrieval-au
 
 ```text
 AISystemDesign/
-├── AISystemDesign.Console/
+├── AISystemDesign.ConsoleApp/
 │   ├── Program.cs
 │   └── Features/
 │       ├── SystemDesignGenerator.cs
@@ -126,7 +126,7 @@ dotnet build
 To run the learning application:
 
 ```bash
-dotnet run --project AISystemDesign.Console
+dotnet run --project AISystemDesign.ConsoleApp
 ```
 
 Console menu:
